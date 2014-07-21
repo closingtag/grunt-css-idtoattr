@@ -8,22 +8,23 @@
 
 'use strict';
 
+var rework = require('rework');
+var rework_plugin = require('rework-idtoattr');
+
 module.exports = function(grunt) {
 
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('css_idtoattr', 'A Grunt Plugin to convert all ID-Selectors to in Attribute-Selectors', function() {
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
+  grunt.registerMultiTask('cssidtoattr', 'The best Grunt plugin ever.', function() {
 
     // Iterate over all specified file groups.
+
     this.files.forEach(function(f) {
+
       // Concat specified files.
       var src = f.src.filter(function(filepath) {
+
         // Warn on and remove invalid source files (if nonull was set).
         if (!grunt.file.exists(filepath)) {
           grunt.log.warn('Source file "' + filepath + '" not found.');
@@ -31,13 +32,12 @@ module.exports = function(grunt) {
         } else {
           return true;
         }
-      }).map(function(filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
 
-      // Handle options.
-      src += options.punctuation;
+      }).map(function(filepath) {
+
+        return rework(grunt.file.read(filepath), 'utf8').use(rework_plugin).toString();
+
+      }).join('\n\n');
 
       // Write the destination file.
       grunt.file.write(f.dest, src);
