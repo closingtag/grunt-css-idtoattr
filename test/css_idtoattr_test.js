@@ -30,19 +30,25 @@ exports.css_idtoattr = {
   default_options: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var actual = grunt.file.read('tmp/output.css');
+    var expected = grunt.file.read('test/expected/output.css');
+    
+    test.equal(actual, expected, 'Replaced all id selectors in source css files with attribute selectors');
 
     test.done();
   },
   custom_options: function(test) {
-    test.expect(1);
+    test.expect(4);
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    test.ok(grunt.file.exists('tmp/source_one.css'), 'source_one.css exits');
+    test.ok(grunt.file.exists('tmp/source_two.css'), 'source_two.css exists');
+
+    test.equal(grunt.file.read('tmp/source_one.css'),
+               grunt.file.read('test/expected/source_one.css'), 'Replaced all id selectors in source_one.css with attribute selectors');
+
+    test.equal(grunt.file.read('tmp/source_two.css'),
+               grunt.file.read('test/expected/source_two.css'), 'Replaced all id selectors in source_one.css with attribute selectors');
 
     test.done();
-  },
+  }
 };

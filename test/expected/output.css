@@ -1,0 +1,16 @@
+[id="button"] ul ~ p {
+  padding: 0;
+}
+
+[id="searchbar"] {
+  border: 0;
+}
+
+.body [id="searchbar"] {
+  position: relative;
+}
+
+div[id="test"] >ul.nav [id="login"] {
+  width: auto;
+  height: 100px;
+}

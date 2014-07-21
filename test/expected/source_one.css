@@ -1,0 +1,7 @@
+[id="button"] ul ~ p {
+  padding: 0;
+}
+
+[id="searchbar"] {
+  border: 0;
+}
