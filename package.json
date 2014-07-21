@@ -1,7 +1,7 @@
 {
   "name": "grunt-css-idtoattr",
   "description": "A Grunt Plugin to convert all ID-Selectors to in Attribute-Selectors",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "homepage": "https://github.com/closingtag/grunt-css-idtoattr",
   "author": {
     "name": "Robert Weber",
