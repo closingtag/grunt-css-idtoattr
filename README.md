@@ -4,6 +4,8 @@
 
 Ever since the CSS became more complex, people argued wether to use ID-Selectors in CSS. Some people [defend](http://www.zeldman.com/2012/11/21/in-defense-of-descendant-selectors-and-id-elements/) the use of ID-Selectors while [others](http://csswizardry.com/2011/09/when-using-ids-can-be-a-pain-in-the-class/) don't. One possible solution to deal with ID-Selectors is to use [attribute-selectors](http://csswizardry.com/2014/07/hacks-for-dealing-with-specificity/) instead. While it is a hack these selectors have the same specificity as a class. Maybe this grunt task helps to use IDs in CSS but not at the cost of specificity. 
 
+This plugins uses [Rework](https://github.com/reworkcss/rework) and the [rework-idtoattr plugin](https://github.com/closingtag/rework-idtoattr).
+
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
 
